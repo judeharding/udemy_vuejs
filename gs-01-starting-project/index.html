@@ -10,13 +10,22 @@
     <div id="app">
       <div>
         <label for="goal">Goal</label>
-        <input type="text" id="goal" />
-        <button>Add Goal</button>
+
+        <!-- v-model="enteredValue" connects the data entered with the app.js data property -->
+        <input type="text" id="goal" v-model="enteredValue" />
+
+         <!-- v-on executes the method in the app.js  -->
+        <button v-on:click="addGoal">Add Goal</button>
       </div>
       <ul>
-        <li>Test</li>
+        <!-- <li>Test</li> -->
+        <li v-for="goal in goals">{{ goal }}</li>
       </ul>
     </div>
+
+    <!-- ADDING VUE -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> -->
     <script src="app.js"></script>
   </body>
 </html>
