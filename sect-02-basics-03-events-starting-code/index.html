@@ -24,8 +24,13 @@
       <!-- <button v-on:click="counter--">Remove</button> -->
       <p>Result: {{ counter }}</p>
       <p></p>
-      <input type="text" v-on:keydown="enteredName($event, 'harding')">
-      <p>Your name is: {{ name }}</p>
+      <input type="text" v-on:keydown="enteredName($event, 'harding')" v-on:keyup.enter="confirmedInput" >
+      <p>Your name is: {{ confirmedName }}</p>
+
+      <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
