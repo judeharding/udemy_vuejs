@@ -19,11 +19,18 @@
     <section id="events">
       <h2>Events in Action</h2>
       <!-- <button v-on:click="counter++">Add</button> -->
+      <!-- <button v-on:click="counter--">Remove</button> -->
+
       <button v-on:click="addToCounter(10)">Add 10</button>
       <button v-on:click="subtractFromCounter(5)">Remove 5</button>
-      <!-- <button v-on:click="counter--">Remove</button> -->
+      
       <p>Result: {{ counter }}</p>
+
+      <!-- maintains the counter when first opened -->
+      <p v-once>Starting Counter: {{ counter }}</p>
+
       <p></p>
+
       <input type="text" v-on:keydown="enteredName($event, 'harding')" v-on:keyup.enter="confirmedInput" >
       <p>Your name is: {{ confirmedName }}</p>
 
@@ -31,6 +38,7 @@
         <input type="text">
         <button>Sign Up</button>
       </form>
+      
     </section>
   </body>
 </html>
