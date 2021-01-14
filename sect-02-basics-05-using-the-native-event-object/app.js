@@ -2,12 +2,13 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: ''
+      name: '', 
+      lastName: '',
     };
   },
 
   // use methods when you want to recalculate a value if ANYTHING ,
-    // like a counter, in the section changes
+    // when an EVENT occurs
   methods: {
     // named like the action they perform
     setName(event) {
@@ -32,22 +33,33 @@ const app = Vue.createApp({
       if (this.name === '') {
         return '';
       } else {
-        return this.name + ' ' + "Harding";
+        return this.name + ' ' + "METHODHarding";
       }
       
     },
   },
 
   // for outputing values, use computed for better performance 
+  // calculate output dynamically 
   computed: {
     // named like data properties not like a method
     fullName(){
       console.log('running from computed');
-      if (this.name === '') {
+      if (this.name === '' || this.lastName === '') {
         return '';
       } else {
-        return this.name + ' ' + "Harding";
+        return this.name + ' ' + this.lastName;
       }
+    },
+  },
+
+  // for logic that updates a data property but not every single time
+  // like timers or http requests  
+  watch: {
+    counter(value){
+      if (this.counter > 50) {
+        this.counter = 0;
+      } 
     },
   },
 

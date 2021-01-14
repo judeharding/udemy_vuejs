@@ -25,9 +25,14 @@
       
       <!-- v model is a shortcut for vbind and voninput = 2 WAY BINDING pattern-->
       <!-- <input type="text" v-bind:value="name" v-on:input="setName()"> -->
+      <label>Enter First Name</label>
       <input type="text" v-model="name">
 
+      <label>Enter Last Name</label>
+      <input type="text" v-model="lastName">
+
       <p>Your First Name: {{ name }}</p>
+
 
       <p>Your Full Name: {{ outputFullName() }}</p>
 
