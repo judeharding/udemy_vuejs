@@ -31,6 +31,11 @@
 
       <p>Your Full Name: {{ outputFullName() }}</p>
 
+      <hr>
+      <!-- not called fullName() -->
+      <!-- because this is running from computed, my conlog is only issued on the method -->
+      <p>Your Full Computed Name: {{ fullName }}</p>
+
       <button v-on:click="resetInput">Reset Input</button>
     </section>
   </body>
