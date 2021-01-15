@@ -5,6 +5,7 @@ const app = Vue.createApp({
             boxASelected: false,
             boxBSelected: false,
             boxCSelected: false,
+            boxDSelected: false,
         };
     },
 
@@ -15,14 +16,25 @@ const app = Vue.createApp({
                 this.boxASelected = !this.boxASelected;
             } else if (box === "B") {
                 this.boxBSelected = !this.boxBSelected;
-            }else if (box === "C") {
+            } else if (box === "C") {
                 this.boxCSelected = !this.boxCSelected;
+            } else if (box === "D") {
+                this.boxDSelected = !this.boxDSelected;
             }
         }
 
     },
 
-    computed: {},
+    computed: {
+
+        boxCClasses(){
+            return { active: this.boxCSelected };
+        },
+
+        boxDClasses(){
+            return { active: this.boxDSelected };
+        },
+    },
 
     watch: {},
 });

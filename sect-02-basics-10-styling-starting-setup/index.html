@@ -17,7 +17,7 @@
       <h1>Vue Dynamic Styling</h1>
     </header>
     <section id="styling">
-      
+
       <!-- OLD WAY FOR BOX A  -->
       <div class="demo" v-on:click="boxSelected('A')" v-bind:style="{borderColor: boxASelected ? 'red' : '#ccc'}" v-on:click="boxSelected('A')"></div>
       
@@ -28,10 +28,16 @@
       ></div>
      
       <!-- <div class="demo" v-on:click="boxSelected('C')" v-bind:style="{borderColor: boxCSelected ? 'green' : '#ccc'}" v-on:click="boxSelected('C')"></div> -->
+      <!-- moving the dynamic class logic into js  -->
       <div 
         class="demo"
-        v-bind:class="{active: boxCSelected }"
+        v-bind:class="boxCClasses"
         v-on:click="boxSelected('C')"
+      ></div>
+
+      <div 
+        v-bind:class="['demo', {active: boxDClasses}]"
+        v-on:click="boxSelected('D')"
       ></div>
       
     </section>
