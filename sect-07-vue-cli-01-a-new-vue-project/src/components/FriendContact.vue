@@ -3,7 +3,7 @@
 		<li>
 			<!-- name is coming from the PROPS section in SCRIPTS below -->
 			<!-- and the kebob-case props are used on the App.vue file -->
-			<h2>{{ name }} {{ friendIsFavorite ? "(FAV)" : "" }}</h2>
+			<h2>{{ name }} {{ isFavorite ? "(FAV)" : "" }}</h2>
 
 			<button v-on:click="toggleFavorite">Toggle Favorite</button>
 
@@ -36,16 +36,20 @@ export default {
 
 	// use this format if you want to validate user entry data - especially when working in a team.
 	props: {
+		id: {
+			type: String,
+			required: true,
+		},
 		name: {
-			Type: String,
+			type: String,
 			required: true,
 		},
 		phoneNumber: {
-			Type: String,
+			type: String,
 			required: true,
 		},
 		emailAddress: {
-			Type: String,
+			type: String,
 			required: true,
 		},
 		isFavorite: {
@@ -69,7 +73,7 @@ export default {
 			// 	email: "manuel@localhost.com",
 			// },
 			// changing data on the child and passing it back to the parent App.vue
-			friendIsFavorite: this.isFavorite,
+			// friendIsFavorite: this.isFavorite,
 		};
 	},
 
@@ -83,7 +87,12 @@ export default {
 		},
 
 		toggleFavorite() {
-			this.friendIsFavorite = !this.friendIsFavorite;
+			// this.friendIsFavorite = !this.friendIsFavorite;
+			// above does not transmit data back to the parent
+
+			// $emit will transmit data back to the parent - built in
+			// only use kabob case
+			this.$emit("toggle-favorite", this.id);
 		},
 	},
 
