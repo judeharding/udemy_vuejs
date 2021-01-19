@@ -4,30 +4,51 @@
 
 		<ul>
 			<li>
-				<friend-contact></friend-contact>
-				<friend-contact></friend-contact>
+				<!-- the kebob-props below are matched with the PROPS in FriendContact.vue file -->
+				<!-- <friend-contact
+					name="Manuel Lorenz"
+					phone-number="01 234 567 8910"
+					email-address="manuel@localhost.com"
+					v-bind:is-favorite="true"
+				></friend-contact>
+				<friend-contact
+					name="Julie Jones"
+					phone-number="09 876 543 2100"
+					email-address="jules@localhost.com"
+					v-bind:is-favorite="false"
+				></friend-contact> -->
+				<friend-contact
+					v-for="friend in friends"
+					v-bind:key="friend.id"
+					v-bind:name="friend.name"
+					v-bind:phone-number="friend.phone"
+					v-bind:email-address="friend.email"
+					v-bind:is-favorite="true"
+				></friend-contact>
 			</li>
 		</ul>
 	</section>
 </template>
 
 <script>
+import FriendContact from "./components/FriendContact.vue";
 export default {
+	components: { FriendContact },
 	data() {
 		return {
 			friends: [
-				// {
-				// 	id: "manuel",
-				// 	name: "Manuel Lorenz",
-				// 	phone: "01 234 567 8910",
-				// 	email: "manuel@localhost.com",
-				// },
-				// {
-				// 	id: "julie",
-				// 	name: "Julie Jones",
-				// 	phone: "09 876 543 2100",
-				// 	email: "jules@localhost.com",
-				// },
+				{
+					id: "manuel",
+					name: "Manuel Lorenz",
+					phone: "01 234 567 8910",
+					email: "manuel@localhost.com",
+				},
+				{
+					id: "julie",
+					name: "Julie Jones",
+					phone: "09 876 543 2100",
+					email: "jules@localhost.com",
+				},
 			],
 		};
 	},
