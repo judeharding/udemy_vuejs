@@ -3,7 +3,10 @@
 		<li>
 			<h2>{{ friend.name }}</h2>
 			<!-- <button v-on:click="toggleDetails()">Show Details</button> -->
-			<button v-on:click="toggleDetails">Show Details</button>
+			<button v-on:click="toggleDetails()">
+				{{ detailsAreVisible ? "Hide " : "Show " }} Details
+			</button>
+
 			<ul v-if="detailsAreVisible">
 				<li><strong>Phone: </strong> {{ friend.phone }}</li>
 				<li><strong>Email: </strong> {{ friend.email }}</li>
