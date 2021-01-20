@@ -1,4 +1,5 @@
 <template>
+  <!-- changes the topic title based on what the user clicked  -->
   <section>
     <h2>{{ topicTitle }}</h2>
     <p>{{ text }}</p>
@@ -7,6 +8,7 @@
 
 <script>
 export default {
-  props: ['topicTitle', 'text'],
+  // making the title available to the app.vue page
+  props: ['topicTitle', 'text']
 };
 </script>
