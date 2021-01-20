@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<header>
+		<!-- if truthy then render this element -->
+		<header v-if="$slots.header">
 			<slot name="header">
 				<h2>DEFAULT HEADER</h2>
 			</slot>
