@@ -63,6 +63,22 @@ export default {
 		},
 	},
 
+	// simple form of emits using an array
+	// emits: ["toggle-favorite"],
+
+	// complex form of emits using an object
+	emits: {
+		"toggle-favorite": function(id) {
+			// logic to trap for no id
+			if (id) {
+				return true;
+			} else {
+				console.warn("MISSING ID");
+				return false;
+			}
+		},
+	},
+
 	data() {
 		return {
 			detailsAreVisible: false,
