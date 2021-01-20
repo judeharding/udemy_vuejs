@@ -28,6 +28,7 @@
 					v-bind:email-address="friend.email"
 					v-bind:is-favorite="friend.isFavorite"
 					@toggle-favorite="toggleFavoriteStatus"
+					@delete="deleteContact"
 				></friend-contact>
 			</li>
 		</ul>
@@ -37,6 +38,7 @@
 <script>
 import FriendContact from "./components/FriendContact.vue";
 import NewFriend from "./components/NewFriend.vue";
+
 export default {
 	components: { FriendContact, NewFriend },
 	data() {
@@ -78,6 +80,11 @@ export default {
 				isFavorite: false,
 			};
 			this.friends.push(newFriendContact);
+		},
+
+		deleteContact(friendId) {
+			// this.friends = this.friends.filter((friend) => friendId !== friendId);
+			this.friends = this.friends.splice(friendId, 1);
 		},
 	},
 

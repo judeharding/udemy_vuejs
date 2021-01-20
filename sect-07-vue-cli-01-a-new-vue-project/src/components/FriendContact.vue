@@ -17,6 +17,9 @@
 				<li><strong>Phone: </strong> {{ phoneNumber }}</li>
 				<li><strong>Email: </strong> {{ emailAddress }}</li>
 			</ul>
+
+			<!-- <button @click="$emit('delete', id)">Delete Friend</button> -->
+			<button @click="$emit('delete', id)">DELETE</button>
 		</li>
 	</section>
 </template>
@@ -64,20 +67,21 @@ export default {
 	},
 
 	// simple form of emits using an array
-	// emits: ["toggle-favorite"],
+	emits: ["toggle-favorite", "delete"],
 
 	// complex form of emits using an object
-	emits: {
-		"toggle-favorite": function(id) {
-			// logic to trap for no id
-			if (id) {
-				return true;
-			} else {
-				console.warn("MISSING ID");
-				return false;
-			}
-		},
-	},
+	// emits: {
+	// 	"toggle-favorite": function(id) {
+	// 		// logic to trap for no id
+	// 		if (id) {
+	// 			return true;
+	// 		} else {
+	// 			console.warn("MISSING ID");
+	// 			return false;
+	// 		}
+	// 	},
+	// 	delete: function() {},
+	// },
 
 	data() {
 		return {
@@ -110,6 +114,10 @@ export default {
 			// only use kabob case
 			this.$emit("toggle-favorite", this.id);
 		},
+
+		// deleteFriend() {   // using EMIT on the button itself
+		// 	this.$emit("delete");
+		// },
 	},
 
 	computed: {},
