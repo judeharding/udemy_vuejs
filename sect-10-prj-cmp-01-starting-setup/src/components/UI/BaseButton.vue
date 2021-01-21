@@ -1,7 +1,7 @@
 <template>
-  <button v-bind="type" v-bind:class="mode"></button>
-  <!-- <base-button mode="flat"></base-button> -->
-  <slot></slot>
+  <button :type="type" :class="mode">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
