@@ -40,6 +40,8 @@
       <h2>What are you interested in?</h2>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <!-- the id is for the GROUP of textboxes.  the value sets the box -->
+        <label for="interest-news">News</label>
         <input
           id="interest-news"
           name="interest"
@@ -47,10 +49,11 @@
           value="news"
           v-model="interest"
         />
-        <label for="interest-news">News</label>
       </div>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <!-- the id is for the GROUP of textboxes.  the value sets the box -->
+        <label for="interest-tutorials">Tutorials</label>
         <input
           id="interest-tutorials"
           name="interest"
@@ -58,10 +61,13 @@
           value="tutorials"
           v-model="interest"
         />
-        <label for="interest-tutorials">Tutorials</label>
       </div>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <!-- the id is for the GROUP of textboxes.  
+        and YOU have to set the value of each box -->
+
+        <label for="interest-nothing">Nothing</label>
         <input
           id="interest-nothing"
           name="interest"
@@ -69,13 +75,13 @@
           value="nothing"
           v-model="interest"
         />
-        <label for="interest-nothing">Nothing</label>
       </div>
     </div>
     <div class="form-control">
       <h2>How do you learn?</h2>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <label for="how-video">Video Courses</label>
         <input
           id="how-video"
           name="how"
@@ -83,10 +89,10 @@
           value="video"
           v-model="how"
         />
-        <label for="how-video">Video Courses</label>
       </div>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <label for="how-blogs">Blogs</label>
         <input
           id="how-blogs"
           name="how"
@@ -94,10 +100,10 @@
           value="blogs"
           v-model="how"
         />
-        <label for="how-blogs">Blogs</label>
       </div>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
+        <label for="how-other">Other</label>
         <input
           id="how-other"
           name="how"
@@ -105,21 +111,22 @@
           value="other"
           v-model="how"
         />
-        <label for="how-other">Other</label>
       </div>
     </div>
     <div class="form-control">
       <!-- v-model 2-way-binds the data to the data in script -->
       <rating-control v-model="rating"></rating-control>
     </div>
+    <!-- AGREE TO TERMS OF SERVICE?  -->
+    <!-- SINGLE checkbox can evaluate to true or false -->
     <div class="form-control">
+      <label for="confirm-terms">Agree to terms of use?</label>
       <input
         type="checkbox"
         id="confirm-terms"
         name="confirm-terms"
         v-model="confirm"
       />
-      <label for="confirm-terms">Agree to terms of use?</label>
     </div>
     <div>
       <!-- when a button is clicked in a form, it is submitted.  prevent is on the form tag -->
@@ -152,6 +159,7 @@ export default {
       console.log('Username: ' + this.userName);
       this.userName = '';
       console.log('User age:');
+      console.log(this.userAge);
       console.log(this.userAge + 5);
       console.log(this.$refs.ageInput.value + 5);
       console.log(31);
