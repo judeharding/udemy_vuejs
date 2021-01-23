@@ -1,12 +1,12 @@
 <template>
   <ul>
-    <li :class="{active: modelValue === 'poor'}">
+    <li :class="{ active: modelValue === 'poor' }">
       <button type="button" @click="activate('poor')">Poor</button>
     </li>
-    <li :class="{active: modelValue === 'average'}">
+    <li :class="{ active: modelValue === 'average' }">
       <button type="button" @click="activate('average')">Average</button>
     </li>
-    <li :class="{active: modelValue === 'great'}">
+    <li :class="{ active: modelValue === 'great' }">
       <button type="button" @click="activate('great')">Great</button>
     </li>
   </ul>
@@ -15,7 +15,7 @@
 <script>
 export default {
   props: ['modelValue'],
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue'], // the name vue is waiting for on a custom component
   // data() {
   //   return {
   //     activeOption: this.modelValue,
@@ -29,8 +29,8 @@ export default {
   methods: {
     activate(option) {
       this.$emit('update:modelValue', option);
-    },
-  },
+    }
+  }
 };
 </script>
 

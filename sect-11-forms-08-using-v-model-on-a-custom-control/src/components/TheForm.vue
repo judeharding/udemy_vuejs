@@ -40,7 +40,8 @@
       <h2>What are you interested in?</h2>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
-        <!-- the id is for the GROUP of textboxes.  the value sets the box -->
+        <!-- the id is for the GROUP of textboxes.  
+        and YOU have to set the value of each box -->
         <label for="interest-news">News</label>
         <input
           id="interest-news"
@@ -52,7 +53,8 @@
       </div>
       <div>
         <!-- v-model 2-way-binds the data to the data in script -->
-        <!-- the id is for the GROUP of textboxes.  the value sets the box -->
+        <!-- the id is for the GROUP of textboxes.  
+        and YOU have to set the value of each box -->
         <label for="interest-tutorials">Tutorials</label>
         <input
           id="interest-tutorials"
@@ -113,10 +115,12 @@
         />
       </div>
     </div>
+
     <div class="form-control">
-      <!-- v-model 2-way-binds the data to the data in script -->
+      <!-- v-model 2-way-binds the RATINGCONTROLE.VUE page here -->
       <rating-control v-model="rating"></rating-control>
     </div>
+
     <!-- AGREE TO TERMS OF SERVICE?  -->
     <!-- SINGLE checkbox can evaluate to true or false -->
     <div class="form-control">
