@@ -3,12 +3,9 @@ import { createStore } from 'vuex';
 
 import App from './App.vue';
 
-const store = createStore({
+const counterModule = {
   state() {
-    return {
-      counter: 0,
-      isLoggedIn: false
-    };
+    return { counter: 0 };
   },
   mutations: {
     increment(state) {
@@ -16,18 +13,10 @@ const store = createStore({
     },
 
     increase(state, payload) {
+      console.log('STATE IS >>> ', state);
       state.counter = state.counter + payload.value;
-    },
-
-    SVGPathSegCurvetoQuadraticSmoothAbs(state, payload) {
-      state.isLoggedIn = payload.isAuth;
-    },
-
-    setAuth(state, payload) {
-      state.isLoggedIn = payload.isAuth;
     }
   },
-
   actions: {
     increment(context) {
       // maybe for HTTP REQUESTS
@@ -38,17 +27,8 @@ const store = createStore({
 
     increase(context, payload) {
       context.commit('increase', payload);
-    },
-
-    login(context) {
-      context.commit('setAuth', { isAuth: true });
-    },
-
-    logout(context) {
-      context.commit('setAuth', { isAuth: false });
     }
   },
-
   getters: {
     finalCounter(state, getters) {
       console.log(getters);
@@ -64,8 +44,42 @@ const store = createStore({
       } else {
         return finalCounter;
       }
+    }
+  }
+};
+
+const store = createStore({
+  modules: {
+    numbers: counterModule
+  },
+  state() {
+    return {
+      // counter: 0,
+      // moving counter to module and leaving auth in the root
+      isLoggedIn: false
+    };
+  },
+  mutations: {
+    SVGPathSegCurvetoQuadraticSmoothAbs(state, payload) {
+      state.isLoggedIn = payload.isAuth;
     },
 
+    setAuth(state, payload) {
+      state.isLoggedIn = payload.isAuth;
+    }
+  },
+
+  actions: {
+    login(context) {
+      context.commit('setAuth', { isAuth: true });
+    },
+
+    logout(context) {
+      context.commit('setAuth', { isAuth: false });
+    }
+  },
+
+  getters: {
     userIsAuthenticated(state) {
       return state.isLoggedIn;
     }
