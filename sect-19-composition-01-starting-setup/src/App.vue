@@ -5,12 +5,18 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 export default {
-  data() {
-    return {
-      userName: 'Maximilian',
-    };
-  },
+  // data() {
+  //   return {
+  //     userName: 'Maximilian',
+  //   };
+  // },
+
+  setup() {
+    const uName = ref('Max'); // ref makes it reactive value
+    return { userName: uName };
+  }
 };
 </script>
 
