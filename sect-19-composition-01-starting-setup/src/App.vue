@@ -1,19 +1,27 @@
 <template>
   <section class="container">
     <h2>{{ user.name }}</h2>
+    <h3>{{ user.uName }}</h3>
     <p>{{ user }}</p>
     <h3>{{ user.age }}</h3>
     <button v-on:click="setAge">Change Age</button>
+    <div>
+      <input type="text" placeholder="first name" @input="setFirstName" />
+      <input type="text" placeholder="last name" @input="setLastName" />
+    </div>
   </section>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
 export default {
   setup() {
     const user = reactive({
-      name: 'Maximilian',
-      age: 31
+      uName: '',
+      name: '',
+      age: 31,
+      firstName: '',
+      lastName: ''
     });
 
     // setTimeout(function() {
@@ -25,7 +33,27 @@ export default {
       user.age = user.age + 1;
     }
 
-    return { user: user, setAge: setNewAge }; // not reactive values
+    function setFirstName(event) {
+      user.firstName.value = event.target.value;
+    }
+
+    function setLastName(event) {
+      user.lastName.value = event.target.value;
+    }
+
+    const uName = computed(function() {
+      return firstName + ' ' + lastName;
+    });
+
+    return {
+      user: user,
+      setAge: setNewAge,
+      setFirstName: setFirstName,
+      setLastName: setLastName,
+      uName: uName,
+      firstName: user.firstName,
+      lastName: user.lastName
+    }; // not reactive values
   }
 };
 </script>
